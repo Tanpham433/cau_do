@@ -19,8 +19,9 @@ add_action( 'add_meta_boxes', 'cau_do_add_meta_box' );
 
 // Hiển thị ô nhập liệu
 function cau_do_render_meta_box( $post ) {
-    echo '<label for="cau_do_dap_an">Đáp án:</label>';
-    echo '<input type="text" id="cau_do_dap_an" name="cau_do_dap_an" value="' . esc_attr( $value ) . '" />';
+    $value = get_post_meta( $post->ID, 'cau_do_dap_an', true );
+echo '<label for="cau_do_dap_an">Đáp án:</label>';
+echo '<input type="text" id="cau_do_dap_an" name="cau_do_dap_an" value="' . esc_attr( $value ) . '" />';
 }
 
 // Lưu trữ dữ liệu nhập liệu
